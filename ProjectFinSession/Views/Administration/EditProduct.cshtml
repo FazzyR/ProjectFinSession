@@ -1,0 +1,73 @@
+﻿@using ProjectFinSession.ViewModels;
+
+@model ProductViewModel
+
+<h1 class="text-info">Create Product</h1>
+<div class="row">
+    <div class="col-md-8">
+        <form asp-controller="Administration" asp-action="CreateProduct" method="post" role="form">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="CreateProduct.Name" class="col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="CreateProduct.Name" class="form-control" />
+                    <span asp-validation-for="CreateProduct.Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateProduct.Description" class="col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="CreateProduct.Description" class="form-control" />
+                    <span asp-validation-for="CreateProduct.Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateProduct.ImageUrl" class="col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="CreateProduct.ImageUrl" class="form-control" />
+                    <span asp-validation-for="CreateProduct.ImageUrl" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateProduct.Price" class="col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="CreateProduct.Price" class="form-control" />
+                    <span asp-validation-for="CreateProduct.Price" class="text-danger"></span>
+                </div>
+            </div>
+
+          
+
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success form-control">Create Product</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="form-group">
+            <label class="col-md-2">List of Items</label>
+            <div class="col-md-10">
+                @if (Model.Products != null && Model.Products.Any())
+                {
+                    <ul>
+                        @foreach (var item in Model.Products)
+                        {
+                            <li>@item.Name</li>
+                            <li>@item.Description</li>
+                            <li>@item.ImageUrl</li>
+                            <li>@item.Price</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No products available.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

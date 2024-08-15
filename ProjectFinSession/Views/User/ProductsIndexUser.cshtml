@@ -1,0 +1,19 @@
+﻿@using ProjectFinSession.Models;
+@model List<Product>
+
+@foreach (var Product in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="@Product.ImageUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@Product.Name</h5>
+            <p class="card-text">@Product.Description</p>
+            <h3 class="card-text">@Product.Price</h3>
+
+            <form asp-controller="User" asp-action="AddToCart" method="post">
+                <input type="hidden" name="productId" value="@Product.Id" />
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+}

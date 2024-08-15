@@ -1,0 +1,55 @@
+﻿@using ProjectFinSession.ViewModels
+﻿
+@model CreateProductViewModel
+
+
+<h1 class="text-info">Log in</h1>
+<div class="row">
+    <div class="col-md-8">
+        <form asp-controller="Administration" asp-action="CreateProduct"  method="post" role="form">
+            <h4>Use a local account to log in.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="ImageUrl" class="form-control" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+          
+
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success form-control"> CreateProduct</button>
+                </div>
+            </div>
+          
+
+        </form>
+    </div>
+
+
+</div>
